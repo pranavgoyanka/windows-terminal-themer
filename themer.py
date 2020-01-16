@@ -23,9 +23,18 @@ def findProfile():
     for x in profiles['profiles']:
         if x['name'] == currentProfName:
             return x
-            # print(x)
-            # currentProf = x
-            # print(currentProf)
+
+def writeProfile():
+    fileJson = open(pathProfile, 'r+')
+    profiles = json.load(fileJson)
+    for x in profiles['profiles']:
+        if x['name'] == currentProfName:
+            x = currentProf
+            break
+    fileJson = json
+
+
+    fileJson.close()
 
 print('Available Windows Terminal Profiles:')
 displayAvailableProfiles()
@@ -33,4 +42,6 @@ currentProfName = getProfname()
 currentProf = findProfile()
 print('Current Profile:')
 pp.pprint(currentProf)
+
+
 
