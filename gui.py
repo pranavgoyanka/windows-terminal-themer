@@ -5,7 +5,9 @@ root = Tk()
 
 def acryOpcty():
     th.currentProf['acrylicOpacity'] = opcty.get()
-    print(th.currentProf)
+    # print(th.currentProf)
+    th.writeProfile(th.currentProf)
+
 opcty = DoubleVar()
 acryOpctyScale = Scale(root, variable = opcty, orient = HORIZONTAL, from_ = 0, resolution = 0.01, to = 1.0)
 acryOpctyScale.grid(row = 0, column = 0)

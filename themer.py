@@ -5,6 +5,7 @@ pp = pprint.PrettyPrinter(4)
 
 # profiles.json path
 pathProfile = 'C:/Users/Pranav Goyanka/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/profiles.json'
+# pathProfile = 'E:/code/windows-terminal-themer/profiles.json'
 
 fileJson = open(pathProfile, 'r')
 profiles = json.load(fileJson)
@@ -24,17 +25,36 @@ def findProfile():
         if x['name'] == currentProfName:
             return x
 
-def writeProfile():
-    fileJson = open(pathProfile, 'r+')
-    profiles = json.load(fileJson)
-    for x in profiles['profiles']:
-        if x['name'] == currentProfName:
-            x = currentProf
-            break
-    fileJson = json
+# def writeProfile():
+#     fileJson = open(pathProfile, 'r+')
+#     profiles = json.load(fileJson)
+#     for x in profiles['profiles']:
+#         if x['name'] == currentProfName:
+#             x = currentProf
+#             break
+#     fileJson = json
 
 
-    fileJson.close()
+#     fileJson.close()
+
+def writeProfile(currentProf):
+    with open(pathProfile, 'r+') as f:
+        data = json.load(f)
+        # profs = data['profiles']
+        # for p in data['profiles']:
+        #     if p['name'] == currentProfName:
+        #         p = currentProf
+        #         print(p)
+        #     # print(p)
+        for p in range(len(data['profiles'])):
+            if data['profiles'][p]['name'] == currentProfName:
+                data['profiles'][p] = currentProf
+                print(p)
+            # print(p)
+        f.seek(0)
+        json.dump(data, f, indent=4)
+        f.truncate()
+            
 
 print('Available Windows Terminal Profiles:')
 displayAvailableProfiles()
