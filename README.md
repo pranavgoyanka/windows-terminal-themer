@@ -50,7 +50,4 @@ Select the shell from the CLI (GUI will be added for this in the future) and hit
 
 
 #### To Do:
-
--Add Complete Functionality
-
--Add a GUI
+Improve what the GUI looks like
