@@ -25,27 +25,9 @@ def findProfile():
         if x['name'] == currentProfName:
             return x
 
-# def writeProfile():
-#     fileJson = open(pathProfile, 'r+')
-#     profiles = json.load(fileJson)
-#     for x in profiles['profiles']:
-#         if x['name'] == currentProfName:
-#             x = currentProf
-#             break
-#     fileJson = json
-
-
-#     fileJson.close()
-
 def writeProfile(currentProf):
     with open(pathProfile, 'r+') as f:
         data = json.load(f)
-        # profs = data['profiles']
-        # for p in data['profiles']:
-        #     if p['name'] == currentProfName:
-        #         p = currentProf
-        #         print(p)
-        #     # print(p)
         for p in range(len(data['profiles'])):
             if data['profiles'][p]['name'] == currentProfName:
                 data['profiles'][p] = currentProf
