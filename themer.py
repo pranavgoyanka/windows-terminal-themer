@@ -31,9 +31,8 @@ def writeProfile(currentProf):
         for p in range(len(data['profiles'])):
             if data['profiles'][p]['name'] == currentProfName:
                 data['profiles'][p] = currentProf
-                print(p)
-            # print(p)
-        f.seek(0)
+        # seek to the begining, write and remove everything else
+        f.seek(0) 
         json.dump(data, f, indent=4)
         f.truncate()
             

@@ -175,7 +175,7 @@
     },
     "profiles": [
         {
-            "acrylicOpacity": 0.01,
+            "acrylicOpacity": 0.59,
             "background": "#012456",
             "closeOnExit": true,
             "colorScheme": "Campbell",
