@@ -7,8 +7,6 @@ pp = pprint.PrettyPrinter(4)
 l = os.getenv('localappdata')
 a = '\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\profiles.json'
 pathProfile = l+a
-# pathProfile = 'C:/Users/Pranav Goyanka/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/profiles.json'
-# pathProfile = '\x25localappdata%/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/profiles.json'
 
 fileJson = open(pathProfile, 'r')
 profiles = json.load(fileJson)
