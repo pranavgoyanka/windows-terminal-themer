@@ -1,5 +1,6 @@
 import themer as th
 from tkinter import *
+from tkcolorpicker import askcolor
 
 root = Tk()
 
@@ -16,9 +17,17 @@ def unifiedWrite(profName, val):
     th.currentProf[profName] = val
     th.writeProfile(th.currentProf)
 
+def pickColor(profName):
+    bgcolor.set(askcolor(bgcolor.get(), root)[1])
+    unifiedWrite(profName, bgcolor.get())
+
+
+
 # Define variables
 opcty = DoubleVar(value=th.currentProf['acrylicOpacity'])
 curshape = StringVar(value=th.currentProf['cursorShape'])
+bgcolor = StringVar(value=th.currentProf['background'])
+
 cursorShapeList = [
     'bar',
     'emptyBox',
@@ -34,9 +43,9 @@ LabelFrame(root, text='Windows Terminal Themer',padx=5, pady=6).grid(padx=5, pad
 # Acrylic Opacity
 Label(root, text='Acrylic Opacity').grid()
 acryOpctyScale = Scale(root, variable = opcty, orient = HORIZONTAL, from_ = 0, resolution = 0.01, to = 1.0)
-acryOpctyScale.grid(row = 0, column = 0)
+acryOpctyScale.grid(column = 0)
 acryOpctyBttn = Button(root, text = 'Set', command=lambda: unifiedWrite('acrylicOpacity', opcty.get()))
-acryOpctyBttn.grid(row= 0, column = 1)
+acryOpctyBttn.grid(column = 1)
 
 # Cursor Shape
 Label(root, text='Cursor Shape').grid()
@@ -45,7 +54,8 @@ for i in range(len(cursorShapeList)):
     R.grid()
     
 # Background Color
-Label(root, text='Cursor Shape').grid()
+Label(root, text='Background Color').grid()
+Button(root, text='Color Picker', command=lambda: pickColor('background')).grid()
 
 
 root.mainloop()
