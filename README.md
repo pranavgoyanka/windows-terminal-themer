@@ -1,4 +1,4 @@
-# windows-terminal-themer
+# Windows Terminal Themer
 A GUI based theme manager for the new Windows Terminal
 
 ## Usage
