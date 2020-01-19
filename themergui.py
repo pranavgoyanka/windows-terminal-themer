@@ -18,20 +18,54 @@ def unifiedWrite(profName, val):
     th.writeProfile(th.currentProf)
 
 def pickColor(profName):
-    color = StringVar(value = th.currentProf[profName])
+    try: color = StringVar(value = th.currentProf[profName])
+    except: color = StringVar(value=th.defaultFallback[profName])
     color.set(askcolor(color.get(), root)[1])
     if color.get() != 'None':
         unifiedWrite(profName, color.get())
 
+# Variables that need to reinitialise on every update
+def reInitVars(opcty, curshape, bgcolor, curcolor, useAcrylic):
+    try : opcty = DoubleVar(value=th.currentProf['acrylicOpacity']) 
+    except: opcty = DoubleVar(value=th.defaultFallback['acrylicOpacity'])
+
+    try: curshape = StringVar(value=th.currentProf['cursorShape'])
+    except: curshape = StringVar(value=th.defaultFallback['cursorShape'])
+
+    try: bgcolor = StringVar(value=th.currentProf['background'])
+    except: bgcolor = StringVar(value=th.defaultFallback['background']) 
+
+    try: curcolor = StringVar(value=th.currentProf['cursorColor'])
+    except: curcolor = StringVar(value=th.defaultFallback['cursorColor'])
+
+    try: useAcrylic = BooleanVar(value=th.currentProf['useAcrylic'])
+    except: useAcrylic = BooleanVar(value=th.defaultFallback['useAcrylic'])
+
+    print(bgcolor.get())
+
+
+
+def selectShell(prof):
+    th.currentProfName = prof
+    th.currentProf = th.findProfile()
+    print(th.currentProfName)
+    print(th.currentProf)
+    reInitVars(opcty, curshape, bgcolor, curcolor, useAcrylic)
+    Tk.update(root)
+
+
 # def rescue():
 #     th.writeProfile(th.rescueProfile)
 
-# Define variables
+# Define variables 
 opcty = DoubleVar(value=th.currentProf['acrylicOpacity'])
 curshape = StringVar(value=th.currentProf['cursorShape'])
 bgcolor = StringVar(value=th.currentProf['background'])
 curcolor = StringVar(value=th.currentProf['cursorColor'])
 useAcrylic = BooleanVar(value=th.currentProf['useAcrylic'])
+
+reInitVars(opcty, curshape, bgcolor, curcolor, useAcrylic)    
+prof = StringVar(value = th.allProfs[0])
 cursorShapeList = [
     'bar',
     'emptyBox',
@@ -39,6 +73,10 @@ cursorShapeList = [
     'underscore',
     'vintage'
 ]
+
+# Profile Selecter
+OptionMenu(root,prof, *th.allProfs).grid()
+Button(root, text='Select Shell', command = lambda: selectShell(prof.get()) ).grid() 
 
 # Use Acrylic
 Checkbutton(root, text='Enable/Disable Acrylic (Blur Effect)', variable=useAcrylic, command=lambda: unifiedWrite('useAcrylic', useAcrylic.get())).grid(column=0, columnspan=3)

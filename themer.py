@@ -12,14 +12,34 @@ fileJson = open(pathProfile, 'r')
 profiles = json.load(fileJson)
 fileJson.close()
 # Defaults
+defaultFallback = {
+    'acrylicOpacity': 0.65,
+    'background': '#024557',
+    'closeOnExit': True,
+    'colorScheme': 'Campbell',
+    'commandline': 'powershell.exe',
+    'cursorColor': '#FFFFFF',
+    'cursorShape': 'vintage',
+    'fontFace': 'Consolas',
+    'fontSize': 11,
+    'guid': '{61c54bbd-c2c6-5271-96e7-009a87ff44bf}',
+    'historySize': 9001,
+    'icon': 'ms-appx:///ProfileIcons/{61c54bbd-c2c6-5271-96e7-009a87ff44bf}.png',
+    'name': 'Windows PowerShell',
+    'padding': '0, 0, 0, 0',
+    'snapOnInput': True,
+    'startingDirectory': '%USERPROFILE%',
+    'useAcrylic': True}
+
 # currentProfName = "WLinux"
 def getProfname():
     return input('Enter the name of terminal who\'s profile you want to change: ') or 'Windows PowerShell'
     
-
+allProfs = []
 def displayAvailableProfiles():
     for prof in profiles['profiles']:
-        print(prof['name'])
+        allProfs.append(prof['name'])
+        # print(prof['name'])
 
 def findProfile():
     for x in profiles['profiles']:
@@ -40,7 +60,8 @@ def writeProfile(currentProf):
 
 print('Available Windows Terminal Profiles:')
 displayAvailableProfiles()
-currentProfName = getProfname()
+# currentProfName = getProfname()
+currentProfName = allProfs[0]
 currentProf = findProfile()
 print('Current Profile:')
 pp.pprint(currentProf)
