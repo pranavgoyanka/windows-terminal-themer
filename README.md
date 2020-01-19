@@ -8,6 +8,11 @@ Clone this repo
 ```
 git clone https://github.com/pranavgoyanka/windows-terminal-themer.git
 ```
+### Install Dependancies
+```
+pip install tkcolorpicker
+```
+
 ### Or 
 Download it manually and save it to your computer
 
