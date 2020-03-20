@@ -53,6 +53,15 @@ themergui.py
 
 Select the shell from the CLI (GUI will be added for this in the future) and hit enter to change the settings
 
+## Using the Custom Color Scheme
+1) Open Windows Terminal and press ``` ctrl + ,```
+
+2) Copy the contents of customColorScheme.json to schemes section of profiles.json
+
+3) Edit the value of colorScheme under your profile name in profiles.json
+
+4) Save and close profiles.json
+
 
 #### To Do:
 Improve what the GUI looks like
