@@ -1,0 +1,21 @@
+{
+    "name": "Custom",
+    "background": "#485460",
+    "black": "#1e272e",
+    "blue": "#0fbcf9",
+    "brightBlack": "#555555",
+    "brightBlue": "#4bcffa",
+    "brightCyan": "#34e7e4",
+    "brightGreen": "#0be881",
+    "brightPurple": "#575fcf",
+    "brightRed": "#ef5777",
+    "brightWhite": "#FFFFFF",
+    "brightYellow": "#ffdd59",
+    "cyan": "#00d8d6",
+    "foreground": "#F8F8F2",
+    "green": "#05c46b",
+    "purple": "#3c40c6",
+    "red": "#f53b57",
+    "white": "#F8F8F2",
+    "yellow": "#ffd32a"
+}

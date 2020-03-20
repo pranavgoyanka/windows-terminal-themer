@@ -41,15 +41,15 @@ def reInitVars(opcty, curshape, bgcolor, curcolor, useAcrylic):
     try: useAcrylic = BooleanVar(value=th.currentProf['useAcrylic'])
     except: useAcrylic = BooleanVar(value=th.defaultFallback['useAcrylic'])
 
-    print(bgcolor.get())
+    # print(bgcolor.get())
 
 
 
 def selectShell(prof):
     th.currentProfName = prof
     th.currentProf = th.findProfile()
-    print(th.currentProfName)
-    print(th.currentProf)
+    # print(th.currentProfName)
+    # print(th.currentProf)
     reInitVars(opcty, curshape, bgcolor, curcolor, useAcrylic)
     Tk.update(root)
 
@@ -75,8 +75,8 @@ cursorShapeList = [
 ]
 
 # Profile Selecter
-OptionMenu(root,prof, *th.allProfs).grid()
-Button(root, text='Select Shell', command = lambda: selectShell(prof.get()) ).grid() 
+OptionMenu(root,prof, *th.allProfs).grid(column = 0, columnspan = 2)
+Button(root, text='Select Shell', command = lambda: selectShell(prof.get()) ).grid(column = 3) 
 
 # Use Acrylic
 Checkbutton(root, text='Enable/Disable Acrylic (Blur Effect)', variable=useAcrylic, command=lambda: unifiedWrite('useAcrylic', useAcrylic.get())).grid(column=0, columnspan=3)

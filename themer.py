@@ -58,13 +58,13 @@ def writeProfile(currentProf):
         f.truncate()
             
 
-print('Available Windows Terminal Profiles:')
+# print('Available Windows Terminal Profiles:')
 displayAvailableProfiles()
 # currentProfName = getProfname()
 currentProfName = allProfs[0]
 currentProf = findProfile()
-print('Current Profile:')
-pp.pprint(currentProf)
+# print('Current Profile:')
+# pp.pprint(currentProf)
 
 
 
