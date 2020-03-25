@@ -62,6 +62,15 @@ Select the shell from the CLI (GUI will be added for this in the future) and hit
 
 4) Save and close profiles.json
 
+## Screenshots
+
+#### The GUI
+![](https://github.com/pranavgoyanka/windows-terminal-themer/blob/master/screenshots/gui.PNG)
+
+#### The working 
+![](https://github.com/pranavgoyanka/windows-terminal-themer/blob/master/screenshots/working.gif)
 
 #### To Do:
 Improve what the GUI looks like
+
+
