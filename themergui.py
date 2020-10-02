@@ -57,6 +57,9 @@ def selectShell(prof):
 # def rescue():
 #     th.writeProfile(th.rescueProfile)
 
+
+# print(th.currentProfName)
+# print(th.currentProf)
 # Define variables 
 opcty = DoubleVar(value=th.currentProf['acrylicOpacity'])
 curshape = StringVar(value=th.currentProf['cursorShape'])
@@ -76,7 +79,7 @@ cursorShapeList = [
 
 # Profile Selecter
 OptionMenu(root,prof, *th.allProfs).grid(column = 0, columnspan = 2)
-Button(root, text='Select Shell', command = lambda: selectShell(prof.get()) ).grid(column = 3) 
+Button(root, text='Select Shell', command = lambda: selectShell(prof.get())).grid(column = 3) 
 
 # Use Acrylic
 Checkbutton(root, text='Enable/Disable Acrylic (Blur Effect)', variable=useAcrylic, command=lambda: unifiedWrite('useAcrylic', useAcrylic.get())).grid(column=0, columnspan=3)
