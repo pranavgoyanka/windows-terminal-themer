@@ -5,7 +5,7 @@ pp = pprint.PrettyPrinter(4)
 
 # profiles.json path
 l = os.getenv('localappdata')
-a = '\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\profiles.json'
+a = '\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json'
 pathProfile = l+a
 
 fileJson = open(pathProfile, 'r')
@@ -37,21 +37,23 @@ def getProfname():
     
 allProfs = []
 def displayAvailableProfiles():
-    for prof in profiles['profiles']:
+    # print(profiles['profiles']['list'])
+    for prof in profiles['profiles']['list']:
         allProfs.append(prof['name'])
         # print(prof['name'])
 
 def findProfile():
-    for x in profiles['profiles']:
+    for x in profiles['profiles']['list']:
         if x['name'] == currentProfName:
             return x
 
 def writeProfile(currentProf):
     with open(pathProfile, 'r+') as f:
         data = json.load(f)
-        for p in range(len(data['profiles'])):
-            if data['profiles'][p]['name'] == currentProfName:
-                data['profiles'][p] = currentProf
+        # print(data)
+        for p in range(len(data['profiles']['list'])):
+            if data['profiles']['list'][p]['name'] == currentProfName:
+                data['profiles']['list'][p] = currentProf
         # seek to the begining, write and remove everything else
         f.seek(0) 
         json.dump(data, f, indent=4)
